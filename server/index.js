@@ -23,7 +23,7 @@ app.use(
     origin: [
       "https://localhost:5173",
       "https://crop-connect-lime.vercel.app",
-      ,
+      "https://crop-connect-nine.vercel.app",
     ],
     credentials: true,
   })
