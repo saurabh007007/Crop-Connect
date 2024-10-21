@@ -29,30 +29,13 @@ const app = express();
 //     credentials: true,
 //   })
 // );
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-  })
-);
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://crop-connect-nine.vercel.app"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
+const corsOptions = {
+  origin: "https://crop-connect-nine.vercel.app",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
-  // Handle preflight requests
-  if (req.method === "OPTIONS") {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
+// Use CORS middleware
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
