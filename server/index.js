@@ -24,6 +24,7 @@ app.use(
       "https://localhost:5173",
       "https://crop-connect-lime.vercel.app",
       "https://crop-connect-nine.vercel.app",
+      "https://crop-connect-kxls-bife1sgln-saurabh007007s-projects.vercel.app",
     ],
     credentials: true,
   })
