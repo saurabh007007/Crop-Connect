@@ -12,7 +12,7 @@ function Navbar() {
   const [cookies, setCookie] = useCookies([
     "user_access_token",
     "seller_access_token",
-    "brandName"
+    "brandName",
   ]);
 
   const userDropdownRef = useRef();
@@ -47,7 +47,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white border-gray-200 shadow">
+    <nav className="bg-blue-300 border-gray-200 shadow">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-12 h-12">
         <a href="/" className="flex items-center">
           <span className="text-xl md:text-2xl font-medium whitespace-nowrap">
@@ -81,7 +81,9 @@ function Navbar() {
                   <li
                     onClick={() => {
                       console.log("User log out clicked");
-                      setCookie("user_access_token", "", {expires: new Date(0) });
+                      setCookie("user_access_token", "", {
+                        expires: new Date(0),
+                      });
                       notify("User Logged Out", "info");
                       navigate("/");
                     }}
@@ -128,8 +130,10 @@ function Navbar() {
                   <li
                     onClick={() => {
                       console.log("Seller log out clicked");
-                      setCookie("seller_access_token", "", {expires: new Date(0) });
-                      setCookie("brandName", "", {expires: new Date(0) });
+                      setCookie("seller_access_token", "", {
+                        expires: new Date(0),
+                      });
+                      setCookie("brandName", "", { expires: new Date(0) });
 
                       navigate("/");
                       notify("Seller Logged Out", "info");
