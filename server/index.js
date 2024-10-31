@@ -18,24 +18,25 @@ const auth = require("./routes/auth");
 const PORT = 8080;
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: [
-//       "https://localhost:5173",
-//       "https://crop-connect-lime.vercel.app",
-//       "https://crop-connect-nine.vercel.app",
-//       "https://crop-connect-kxls-bife1sgln-saurabh007007s-projects.vercel.app",
-//     ],
-//     credentials: true,
-//   })
-// );
-const corsOptions = {
-  origin: "https://crop-connect-nine.vercel.app",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+app.use(
+  cors({
+    origin: [
+      "https://localhost:5173",
+      "https://crop-connect-lime.vercel.app",
+      "https://crop-connect-nine.vercel.app",
+      "https: //crop-connect-nine.vercel.app/",
+      "https://crop-connect-kxls-bife1sgln-saurabh007007s-projects.vercel.app",
+    ],
+    credentials: true,
+  })
+);
+// const corsOptions = {
+//   origin: "https://crop-connect-nine.vercel.app",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 // Use CORS middleware
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
