@@ -18,6 +18,7 @@ const auth = require("./routes/auth");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(urlencoded({ extended: true }));
 const allowedOrigins = [
   "https://localhost:5173",
   "https://crop-connect-api.vercel.app",
