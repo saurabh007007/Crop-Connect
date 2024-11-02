@@ -19,8 +19,9 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:5173",
+  "https://localhost:5173",
   "https://crop-connect-api.vercel.app",
+  "https://crop-connect-theta.vercel.app",
 ];
 
 app.use(
