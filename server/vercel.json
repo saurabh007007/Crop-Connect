@@ -20,7 +20,7 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://crop-connect-api.vercel.app"
+          "value": "https://crop-connect-frontend.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
