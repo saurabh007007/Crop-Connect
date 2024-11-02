@@ -23,16 +23,13 @@ const useHttpClient = () => {
   ) => {
     setIsLoading(true);
     try {
-      const response = await axios(
-        {
-          url,
-          method,
-          data: body,
-          headers,
-          withCredentials,
-        },
-        { headers: { "Access-Control-Allow-Origin": "*" } }
-      );
+      const response = await axios({
+        url,
+        method,
+        data: body,
+        headers,
+        withCredentials,
+      });
 
       if (response.data.cookies) {
         Object.keys(response.data.cookies).forEach((cookie) => {
