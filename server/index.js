@@ -19,28 +19,13 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(urlencoded({ extended: true }));
-const allowedOrigins = [
-  "https://localhost:5173",
-  "https://crop-connect-api.vercel.app",
-  "https://crop-connect-theta.vercel.app",
-];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "*",
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    exposedHeaders: ["Set-Cookie"],
   })
 );
-
 app.use(express.json());
 
 const server = http.createServer(app);
