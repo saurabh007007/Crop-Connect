@@ -20,12 +20,18 @@ const app = express();
 
 app.use(urlencoded({ extended: true }));
 
+const allowedOrigins = [
+  "https://localhost:5173",
+  "https://crop-connect-api.vercel.app",
+  "https://crop-connect-theta.vercel.app",
+];
 app.use(
   cors({
     origin: "*",
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 const server = http.createServer(app);
