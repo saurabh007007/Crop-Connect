@@ -19,7 +19,6 @@ function ProductReviews() {
   const [isReviewFirstTimeLoading, setIsReviewFirstTimeLoading] =
     useState(true);
 
-
   useEffect(() => {
     const getReview = async () => {
       let data = await getReviews(productData?._id, currentPage);
@@ -45,8 +44,8 @@ function ProductReviews() {
             />
           </div>
 
-          <ProductReviewForm/>
-     
+          <ProductReviewForm />
+
           {isReviewFirstTimeLoading ? (
             <ReviewsSkeleton />
           ) : reviewData.length === 0 ? (

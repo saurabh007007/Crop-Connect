@@ -14,7 +14,7 @@ const useFaqs = () => {
   const getFaqs = async (productId, page, faq_per_page = 6) => {
     try {
       const faqs = await sendRequest(
-        GET_PRODUCT_FAQS(productId, page, faq_per_page)
+        GET_PRODUCT_FAQS(productId, page, faq_per_page),
       );
       return faqs.data;
     } catch (error) {
@@ -28,7 +28,7 @@ const useFaqs = () => {
         "user",
         ADD_PRODUCT_FAQ(productId),
         "POST",
-        faqData
+        faqData,
       );
       return true;
     } catch (error) {
@@ -42,14 +42,13 @@ const useFaqs = () => {
       const faqs = await sendAuthorizedRequest(
         "seller",
         GET_SELLER_FAQS(isAnswered),
-        "GET"
+        "GET",
       );
       return faqs.data;
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const ansFAQ = async (faqId, answer) => {
     try {
@@ -58,14 +57,15 @@ const useFaqs = () => {
         return;
       }
 
-      await sendAuthorizedRequest("seller", ANSWER_FAQ(faqId), "PATCH", { answer });
+      await sendAuthorizedRequest("seller", ANSWER_FAQ(faqId), "PATCH", {
+        answer,
+      });
       return true;
     } catch (error) {
       console.log(error);
       return false;
     }
   };
-
 
   return { getFaqs, addFaq, getSellerFAQs, ansFAQ, isLoading };
 };

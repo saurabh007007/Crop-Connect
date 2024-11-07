@@ -7,7 +7,6 @@
 //   plugins: [react()],
 // })
 
-
 import { defineConfig } from "vite";
 import mkcert from "vite-plugin-mkcert";
 

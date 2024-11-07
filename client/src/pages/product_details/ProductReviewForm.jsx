@@ -4,7 +4,6 @@ import Rating from "../../components/product_details/Rating";
 import Spinner from "../../components/loading/Spinner";
 import { useSelector } from "react-redux";
 
-
 const ProductReviewForm = () => {
   const { addReview, isLoading } = useReviews();
   const productData = useSelector((state) => state.productReducer);

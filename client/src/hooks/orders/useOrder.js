@@ -15,7 +15,7 @@ const useOrder = () => {
         "user",
         ORDER_PRODUCT,
         "POST",
-        orderData
+        orderData,
       );
 
       if (res !== false) {
@@ -33,7 +33,7 @@ const useOrder = () => {
       const res = await sendAuthorizedRequest(
         "seller",
         GET_SELLER_ORDERS,
-        "GET"
+        "GET",
       );
       return res.data;
     } catch (error) {

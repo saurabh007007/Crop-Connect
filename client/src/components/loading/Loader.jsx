@@ -3,7 +3,7 @@ import React from "react";
 
 function Loader(props) {
   return (
-    <PulseLoader 
+    <PulseLoader
       color={props.color}
       loading="true"
       size={props.size}

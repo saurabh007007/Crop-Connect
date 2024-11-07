@@ -37,7 +37,7 @@ export const CROP_PREDICTOR = (
   altitude,
   temperature,
   humidity,
-  rainfall
+  rainfall,
 ) =>
   `/ai/crops?soil=${soil}&altitude=${altitude}&temperature=${temperature}&humidity=${humidity}&rainfall=${rainfall}`;
 

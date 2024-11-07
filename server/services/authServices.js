@@ -25,7 +25,7 @@ const saveAndSendVerficationToken = async (id, type, origin) => {
   const mailRes = await sendMail(
     data.email,
     `Click <a href=${verificationTokenLink}>here</a> to verify your account`,
-    `Verify your ${capitalizeFirstLetter(type)} account`
+    `Verify your ${capitalizeFirstLetter(type)} account`,
   );
 
   return mailRes;

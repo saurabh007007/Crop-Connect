@@ -6,7 +6,7 @@ const addOrder = async (req, res) => {
   try {
     const orders = req.body;
     const userId = req.userId;
-    
+
     // Check orders variable is an array
     if (!Array.isArray(orders)) {
       return res.status(400).send({ message: "Invalid orders data" });

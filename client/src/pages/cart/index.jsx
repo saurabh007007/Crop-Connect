@@ -90,7 +90,7 @@ function Cart({ setOpenCart }) {
                           if (cartData.length === 0) {
                             notify(
                               "Please add some products to cart first",
-                              "info"
+                              "info",
                             );
                           }
                           navigate("/orders");

@@ -7,7 +7,7 @@ const InputTag = ({
   outlineColor,
   value,
   setFormData,
-  toUpdate
+  toUpdate,
 }) => {
   return (
     <div>

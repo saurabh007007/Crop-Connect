@@ -66,9 +66,7 @@ function FAQ() {
                     setCurrentPage((prevPage) => prevPage + 1);
                   }}
                 >
-                  {isLoading && (
-                      <Spinner width="w-5" color="#ffffff" />
-                  )}
+                  {isLoading && <Spinner width="w-5" color="#ffffff" />}
                   Load More
                 </button>
               </div>

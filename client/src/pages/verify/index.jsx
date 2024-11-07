@@ -14,9 +14,8 @@ const Verify = () => {
   const navigate = useNavigate();
   const [src, { blur }] = useProgressiveImg(
     "/images/verify-bg/verify-compressed.webp",
-    "/images/verify-bg/verify.webp"
+    "/images/verify-bg/verify.webp",
   );
-
 
   // console.log("token", token); //token gets automatically decode when passed as a param
 

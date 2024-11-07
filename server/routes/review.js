@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const reviewController = require('../controllers/reviewController');
-const verifyAccessToken = require('../middlewares/verifyAccessToken');
+const reviewController = require("../controllers/reviewController");
+const verifyAccessToken = require("../middlewares/verifyAccessToken");
 
 // Add Review
 router.post("/:productId", verifyAccessToken, reviewController.addReview);

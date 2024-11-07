@@ -55,7 +55,7 @@ const getProductDataByCategory = async (req, res) => {
       .skip(skip)
       .limit(products_per_page)
       .select(
-        "name image brand measuringUnit pricePerUnit minimumOrderQuantity location sellerId"
+        "name image brand measuringUnit pricePerUnit minimumOrderQuantity location sellerId",
       )
       .lean();
     res.status(200).send({ products: data, hasMore });
@@ -266,7 +266,7 @@ const getMainProductDataById = async (req, res) => {
   try {
     let product = await Product.findById(req.params.productId)
       .select(
-        "name image brand measuringUnit pricePerUnit minimumOrderQuantity location sellerId"
+        "name image brand measuringUnit pricePerUnit minimumOrderQuantity location sellerId",
       )
       .lean();
 

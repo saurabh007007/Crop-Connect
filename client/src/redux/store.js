@@ -4,14 +4,14 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-    key: "CropConnect", // The key to use in local storage
-    storage,
-  };
+  key: "CropConnect", // The key to use in local storage
+  storage,
+};
 
-  const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-    reducer: persistedReducer
+  reducer: persistedReducer,
 });
 
 const persistor = persistStore(store);

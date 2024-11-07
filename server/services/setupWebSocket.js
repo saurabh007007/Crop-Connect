@@ -14,7 +14,7 @@ function setupWebSocket(io) {
       ) {
         socket.emit(
           "stockUpdate",
-          change.updateDescription.updatedFields.quantity
+          change.updateDescription.updatedFields.quantity,
         );
       }
     });

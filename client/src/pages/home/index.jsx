@@ -10,7 +10,11 @@ function Home() {
       <Hero />
       <Link to="/products"></Link>
       <div className="mx-auto w-11/12 mb-6 md:mb-12">
-        <Heading text="Category" marginY="my-6 md:my-8" textAlign="text-center" />
+        <Heading
+          text="Category"
+          marginY="my-6 md:my-8"
+          textAlign="text-center"
+        />
         <Category />
       </div>
     </>

@@ -43,7 +43,6 @@ function Product() {
     fetchData();
   });
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (

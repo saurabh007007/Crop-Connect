@@ -50,7 +50,11 @@ function Category() {
     <div className="grid gap-2 md:gap-4 lg:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {categoryProductData.map((item, index) => (
         <Link to={`/category/${item.title.toLowerCase()}`} key={index}>
-          <CategoryCard title={item.title} image={item.image} compressedImg={item.compressedImg}/>
+          <CategoryCard
+            title={item.title}
+            image={item.image}
+            compressedImg={item.compressedImg}
+          />
         </Link>
       ))}
     </div>

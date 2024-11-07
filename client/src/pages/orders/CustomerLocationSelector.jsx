@@ -2,7 +2,6 @@ import React from "react";
 import LeafletMap from "../../components/map/LeafletMap";
 import { notify } from "../../utils/helper/notification";
 
-
 const CustomerLocationSelector = ({
   customerLatitude,
   customerLongitude,

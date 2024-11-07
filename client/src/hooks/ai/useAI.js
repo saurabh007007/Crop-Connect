@@ -12,12 +12,12 @@ const useAI = () => {
         formData.altitude,
         formData.temperature,
         formData.humidity,
-        formData.rainfall
+        formData.rainfall,
       ),
       "GET",
-      null, 
       null,
-      false
+      null,
+      false,
     );
     console.log(resp);
     return resp.data.message;

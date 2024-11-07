@@ -32,7 +32,7 @@ function ProductDetails() {
   }, [productData]);
 
   const isProductInCart = cartData.some(
-    (item) => item._id === productDashboardData?._id
+    (item) => item._id === productDashboardData?._id,
   );
 
   const fetchProductDashboardData = async () => {
@@ -92,12 +92,12 @@ function ProductDetails() {
         ) : (
           <div className="lg:w-1/2 w-full h-64 md:h-auto  rounded relative">
             <img
-            loading="lazy"
+              loading="lazy"
               className="object-cover object-center h-full w-full"
               src={productDashboardData?.image}
             />
             <span className="absolute top-0 right-0 m-2">
-              <ShareButton url={window.location.href}/>
+              <ShareButton url={window.location.href} />
             </span>
           </div>
         )}

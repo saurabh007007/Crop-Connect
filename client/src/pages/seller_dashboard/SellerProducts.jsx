@@ -12,11 +12,9 @@ import EmptyStateText from "../../components/empty_state/EmptyStateText";
 import Heading from "../../components/heading/Heading";
 import useProducts from "../../hooks/products/useProducts";
 
-
 function SellerProducts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
 
   const { getSellerProducts, deleteProduct } = useProducts();
 
@@ -130,7 +128,7 @@ function SellerProducts() {
                   >
                     <td className="px-6 py-4 font-medium">{index + 1}</td>
                     <td className="px-6 py-2">
-                      <img src={item.image} alt="Image" loading="lazy"/>
+                      <img src={item.image} alt="Image" loading="lazy" />
                     </td>
                     <td className="px-6 py-4">{item.category}</td>
                     <td className="px-6 py-4">{item.name}</td>
@@ -142,7 +140,7 @@ function SellerProducts() {
                       className="px-6 py-4 cursor-pointer font-medium text-sky-700 hover:underline whitespace-nowrap"
                       onClick={() => {
                         navigate(
-                          `/map/${item.location.latitude}/${item.location.longitude}`
+                          `/map/${item.location.latitude}/${item.location.longitude}`,
                         );
                       }}
                     >

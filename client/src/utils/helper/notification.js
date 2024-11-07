@@ -12,4 +12,3 @@ export const notify = (message, type) => {
     theme: "light",
   });
 };
-

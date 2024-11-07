@@ -4,7 +4,7 @@ import useProgressiveImg from "../../hooks/image/useProgressiveImg";
 const SideImage = ({ type }) => {
   const [src, { blur }] = useProgressiveImg(
     "/images/auth-banner/auth-compressed.webp",
-    "/images/auth-banner/auth.webp"
+    "/images/auth-banner/auth.webp",
   );
 
   return (

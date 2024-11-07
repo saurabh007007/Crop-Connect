@@ -16,7 +16,7 @@ function SellerProductOperation() {
   const { updateProduct, addProduct, isLoading, setIsLoading } = useProducts();
 
   const productEditData = useSelector(
-    (state) => state.sellerEditProductReducer
+    (state) => state.sellerEditProductReducer,
   );
 
   const [renderMap, setRenderMap] = useState(false);

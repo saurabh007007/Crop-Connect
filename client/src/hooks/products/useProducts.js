@@ -20,7 +20,9 @@ const useProducts = () => {
 
   const getProductsByCategory = async (category, page, products_per_page) => {
     try {
-      const products = await sendRequest(GET_PRODUCTS_BY_CATEGORY(category, page, products_per_page));
+      const products = await sendRequest(
+        GET_PRODUCTS_BY_CATEGORY(category, page, products_per_page),
+      );
       return products.data;
     } catch (error) {
       console.log(error);
@@ -30,7 +32,7 @@ const useProducts = () => {
   const getProductUserDashboardData = async (productId) => {
     try {
       const dashProductData = await sendRequest(
-        GET_PRODUCT_DASHBOARD_DATA(productId)
+        GET_PRODUCT_DASHBOARD_DATA(productId),
       );
 
       // dispatch(
@@ -51,7 +53,7 @@ const useProducts = () => {
       let products = await sendAuthorizedRequest(
         "seller",
         GET_SELLER_PRODUCTS,
-        "GET"
+        "GET",
       );
       return products.data;
     } catch (error) {
@@ -68,7 +70,7 @@ const useProducts = () => {
         formData,
         {
           "Content-Type": "multipart/form-data",
-        }
+        },
       );
     } catch (error) {
       console.log(error);
@@ -90,7 +92,7 @@ const useProducts = () => {
       await sendAuthorizedRequest(
         "seller",
         DELETE_PRODUCT(productId),
-        "DELETE"
+        "DELETE",
       );
     } catch (error) {
       console.log(error);
@@ -100,7 +102,7 @@ const useProducts = () => {
   const getMainProductData = async (productId) => {
     try {
       const dashMainProductData = await sendRequest(
-        GET_MAIN_PRODUCT_DASHBOARD_DATA(productId)
+        GET_MAIN_PRODUCT_DASHBOARD_DATA(productId),
       );
 
       console.log(dashMainProductData.data);
@@ -109,7 +111,7 @@ const useProducts = () => {
         addProductData({
           ...productData,
           ...dashMainProductData.data,
-        })
+        }),
       );
     } catch (error) {
       console.log(error);

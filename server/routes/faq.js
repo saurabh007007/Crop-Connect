@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const faqController = require('../controllers/faqController');
-const verifyAccessToken = require('../middlewares/verifyAccessToken');
+const faqController = require("../controllers/faqController");
+const verifyAccessToken = require("../middlewares/verifyAccessToken");
 
 // Add FAQ
 router.post("/:productId", verifyAccessToken, faqController.addFAQ);

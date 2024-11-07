@@ -12,7 +12,7 @@ const useReviews = () => {
   const getReviews = async (productId, page, review_per_page = 2) => {
     try {
       let reviews = await sendRequest(
-        GET_PRODUCT_REVIEWS(productId, page, review_per_page)
+        GET_PRODUCT_REVIEWS(productId, page, review_per_page),
       );
       return reviews.data;
     } catch (error) {
@@ -35,7 +35,7 @@ const useReviews = () => {
         "user",
         ADD_PRODUCT_REVIEW(productId),
         "POST",
-        reviewData
+        reviewData,
       );
       return true;
     } catch (error) {

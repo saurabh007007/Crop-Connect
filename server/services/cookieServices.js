@@ -12,5 +12,5 @@ const setCookie = (res, name, value) => {
 };
 
 module.exports = {
-    setCookie,
+  setCookie,
 };

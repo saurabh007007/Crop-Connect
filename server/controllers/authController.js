@@ -23,18 +23,18 @@ const signup = async (req, res) => {
     const isMailSentSuccessful = await saveAndSendVerficationToken(
       result._id.toString(),
       type,
-      req.get("Origin")
+      req.get("Origin"),
     );
     if (isMailSentSuccessful) {
       return res.status(200).send({
         message: `${capitalizeFirstLetter(
-          type
+          type,
         )} account created, please verify your email to login`,
       });
     } else {
       return res.status(200).send({
         message: `${capitalizeFirstLetter(
-          type
+          type,
         )} account created. However, we couldn't send the verification link. You can verify your account during login.`,
       });
     }
@@ -43,7 +43,7 @@ const signup = async (req, res) => {
       if (error.keyPattern.email || error.keyPattern.contact) {
         return res.status(400).send({
           message: `${capitalizeFirstLetter(
-            type
+            type,
           )} with this email or phone number already exists`,
         });
       } else if (type === "seller" && error.keyPattern.brandName) {
@@ -68,7 +68,7 @@ const login = async (req, res) => {
     let Model = authModelSelector(type, res);
 
     let data = await Model.findOne({ email }).select(
-      `password isVerified ${type === "seller" && "brandName"}`
+      `password isVerified ${type === "seller" && "brandName"}`,
     );
 
     if (!data) {
@@ -85,18 +85,18 @@ const login = async (req, res) => {
         const isMailSentSuccessful = await saveAndSendVerficationToken(
           data._id.toString(),
           type,
-          req.get("Origin")
+          req.get("Origin"),
         );
         if (!isMailSentSuccessful) {
           return res.status(200).send({
             message: `${capitalizeFirstLetter(
-              type
+              type,
             )} account not verified. We couldn't send the email. Please try again later. If this issue persists, contact the developer.`,
           });
         } else {
           return res.status(200).send({
             message: `${capitalizeFirstLetter(
-              type
+              type,
             )} account not verified. We've sent you an email, please verify your email to login`,
           });
         }
@@ -117,7 +117,7 @@ const login = async (req, res) => {
         cookies: {
           [`${type}_access_token`]: generateAccessToken(
             type,
-            data._id.toString()
+            data._id.toString(),
           ),
           ...(type === "seller" && { brandName: data.brandName }),
         },
@@ -141,7 +141,7 @@ const verifyToken = async (req, res) => {
     const data = await Model.findOne({
       verificationToken: verificationToken,
     }).select(
-      `isVerified verificationTokenExpiry ${type === "seller" && "brandName"}`
+      `isVerified verificationTokenExpiry ${type === "seller" && "brandName"}`,
     );
 
     if (data?.isVerified)
@@ -173,7 +173,7 @@ const verifyToken = async (req, res) => {
       cookies: {
         [`${type}_access_token`]: generateAccessToken(
           type,
-          data._id.toString()
+          data._id.toString(),
         ),
         ...(type === "seller" && { brandName: data.brandName }),
       },

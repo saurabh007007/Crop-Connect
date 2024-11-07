@@ -1,7 +1,10 @@
 import React from "react";
 
-const OrderSummary = ({ totalAmount, deliveryCharge, limitForFreeDelivery }) => {
-
+const OrderSummary = ({
+  totalAmount,
+  deliveryCharge,
+  limitForFreeDelivery,
+}) => {
   return (
     <div className="flex flex-col px-4 py-6 md:p-6 xl:p-8 w-full bg-gray-50  space-y-6">
       <h3 className="text-xl  font-semibold leading-5 text-gray-800">

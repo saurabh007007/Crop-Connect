@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const Rating = ({rate, setRate, size}) => {
-//   const [rate, setRate] = useState(0);
+const Rating = ({ rate, setRate, size }) => {
+  //   const [rate, setRate] = useState(0);
 
   return (
     <div className={`flex justify-center items-center ${size}`}>
@@ -16,7 +16,7 @@ const Rating = ({rate, setRate, size}) => {
               className="hidden"
               onClick={(e) => {
                 e.preventDefault();
-                setRate(()=>givenRating);
+                setRate(() => givenRating);
               }}
             />
             <div className="cursor-pointer ">

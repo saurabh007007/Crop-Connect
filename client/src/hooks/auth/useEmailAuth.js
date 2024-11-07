@@ -35,7 +35,7 @@ const useEmailAuth = () => {
         "PATCH",
         null,
         null,
-        false
+        false,
       );
       return resp.status;
       W;

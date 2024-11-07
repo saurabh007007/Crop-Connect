@@ -10,7 +10,7 @@ router.post(
   "/",
   verifyAccessToken,
   upload.single("image"),
-  productController.addProduct
+  productController.addProduct,
 );
 
 // Get Product Data By Category
@@ -23,26 +23,26 @@ router.get("/dashboard/:productId", productController.getProductDashboardData);
 router.get(
   "/seller",
   verifyAccessToken,
-  productController.getProductDataBySellerId
+  productController.getProductDataBySellerId,
 );
 
 // Get Product Data By Id
 router.get(
   "/getProductDataById/:productId",
-  productController.getProductDataById
+  productController.getProductDataById,
 );
 
 // Get Product Stocks By Id
 router.get(
   "/getProductStocksById/:productId",
-  productController.getProductStocksById
+  productController.getProductStocksById,
 );
 
 // Delete Product
 router.delete(
   "/:productId",
   verifyAccessToken,
-  productController.deleteProduct
+  productController.deleteProduct,
 );
 
 // Update Product
@@ -50,11 +50,13 @@ router.put(
   "/:productId",
   verifyAccessToken,
   upload.single("image"),
-  productController.updateProduct
+  productController.updateProduct,
 );
 
-// Get main product data by id 
-router.get("/mainProductData/:productId", productController.getMainProductDataById);
-
+// Get main product data by id
+router.get(
+  "/mainProductData/:productId",
+  productController.getMainProductDataById,
+);
 
 module.exports = router;

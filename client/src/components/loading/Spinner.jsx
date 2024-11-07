@@ -1,6 +1,6 @@
 import React from "react";
 
-function Spinner({color, width, marginRight="mr-2"}) {
+function Spinner({ color, width, marginRight = "mr-2" }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

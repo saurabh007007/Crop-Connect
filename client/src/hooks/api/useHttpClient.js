@@ -19,7 +19,7 @@ const useHttpClient = () => {
     body = null,
     headers = {},
     showToast = true,
-    withCredentials = false
+    withCredentials = false,
   ) => {
     setIsLoading(true);
     try {
@@ -46,7 +46,7 @@ const useHttpClient = () => {
       if (error.response.status === 504) {
         notify(
           "Gateway timeout occurred. Please try to reload the page.",
-          "error"
+          "error",
         );
         return;
       }
@@ -65,7 +65,7 @@ const useHttpClient = () => {
     body = null,
     headers = {},
     showToast = true,
-    withCredentials = false
+    withCredentials = false,
   ) => {
     if (requestType === "user" && !cookies.user_access_token) {
       notify("Please login as user to continue", "info");
@@ -90,7 +90,7 @@ const useHttpClient = () => {
         ...headers,
       },
       showToast,
-      withCredentials
+      withCredentials,
     );
   };
 

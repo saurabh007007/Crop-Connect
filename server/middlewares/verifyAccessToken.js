@@ -33,7 +33,9 @@ const verifyAccessToken = async (req, res, next) => {
         .send({ message: "Token expired, please login again" });
     }
 
-    return res.status(403).send({ message: "Invalid token, please login again" });
+    return res
+      .status(403)
+      .send({ message: "Invalid token, please login again" });
   }
 };
 

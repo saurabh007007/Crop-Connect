@@ -13,7 +13,6 @@ function SellerContact() {
     productData?.location?.longitude,
   ];
 
-
   const [feedbackForm, setFeedbackForm] = useState({
     question: null,
   });
