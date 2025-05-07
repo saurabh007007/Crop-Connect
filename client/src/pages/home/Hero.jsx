@@ -4,7 +4,7 @@ import useProgressiveImg from "../../hooks/image/useProgressiveImg";
 function Hero() {
   const [src, { blur }] = useProgressiveImg(
     "/images/home-banner/home-compressed.webp",
-    "/images/home-banner/home.webp"
+    "/images/home-banner/home.webp",
   );
 
   return (
