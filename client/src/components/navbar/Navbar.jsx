@@ -47,26 +47,25 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-blue-300 border-gray-200 shadow">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-12 h-12">
+    <nav className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 shadow-md backdrop-blur text-white">
+      <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-12 h-14">
         <a href="/" className="flex items-center">
-          <span className="text-xl md:text-2xl font-medium whitespace-nowrap">
-            <span className="text-red-500 font-bold">C</span>rop
-            <span className="text-red-500 font-bold">C</span>onnect
+          <span className="text-xl md:text-3xl font-semibold whitespace-nowrap tracking-wide">
+            <span className="text-red-200 font-bold">C</span>rop
+            <span className="text-red-200 font-bold">C</span>onnect
           </span>
         </a>
-        <div className="flex flex-row gap-4 md:gap-8 text-2xl md:text-3xl">
+        <div className="flex flex-row gap-4 md:gap-8 text-2xl md:text-3xl items-center">
+          {/* User */}
           <div
             ref={userDropdownRef}
-            className="relative flex flex-row gap-1 justify-center items-center text-blue-700 cursor-pointer"
+            className="relative flex items-center gap-1 text-white cursor-pointer hover:scale-105 transition-transform"
             onMouseEnter={() => {
               setShowUserDropdown(true);
               setShowSellerDropdown(false);
             }}
             onClick={() => {
-              if (!cookies.user_access_token) {
-                navigate("/account/user");
-              }
+              if (!cookies.user_access_token) navigate("/account/user");
             }}
           >
             <FaUserCircle />
@@ -75,38 +74,36 @@ function Navbar() {
               <div
                 className={`absolute ${
                   showUserDropdown ? "block" : "hidden"
-                } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
+                } top-10 right-0 z-10 font-medium bg-white text-gray-800 rounded-lg shadow-lg py-2 w-40`}
               >
-                <ul className="py-1 md:py-2 flex flex-col text-sm gap-2 text-gray-700 ">
+                <ul className="flex flex-col text-sm gap-2 px-4">
                   <li
                     onClick={() => {
-                      console.log("User log out clicked");
                       setCookie("user_access_token", "", {
                         expires: new Date(0),
                       });
                       notify("User Logged Out", "info");
                       navigate("/");
                     }}
+                    className="hover:text-blue-600 cursor-pointer"
                   >
-                    <a className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  whitespace-nowrap">
-                      User Logout
-                    </a>
+                    Logout
                   </li>
                 </ul>
               </div>
             )}
           </div>
+
+          {/* Seller */}
           <div
             ref={sellerDropdownRef}
-            className="relative flex flex-row gap-1 justify-center items-center text-green-700 cursor-pointer"
+            className="relative flex items-center gap-1 text-white cursor-pointer hover:scale-105 transition-transform"
             onMouseEnter={() => {
               setShowSellerDropdown(true);
               setShowUserDropdown(false);
             }}
             onClick={() => {
-              if (!cookies.seller_access_token) {
-                navigate("/account/seller");
-              }
+              if (!cookies.seller_access_token) navigate("/account/seller");
             }}
           >
             <SiSellfy />
@@ -115,47 +112,42 @@ function Navbar() {
               <div
                 className={`absolute ${
                   showSellerDropdown ? "block" : "hidden"
-                } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
+                } top-10 right-0 z-10 font-medium bg-white text-gray-800 rounded-lg shadow-lg py-2 w-48`}
               >
-                <ul className="py-2 flex flex-col text-sm gap-2 text-gray-700 ">
+                <ul className="flex flex-col text-sm gap-2 px-4">
                   <li
-                    onClick={() => {
-                      navigate("/sellerdashboard");
-                    }}
+                    onClick={() => navigate("/sellerdashboard")}
+                    className="hover:text-green-600 cursor-pointer"
                   >
-                    <a className="block px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0  whitespace-nowrap">
-                      Seller Dashboard
-                    </a>
+                    Dashboard
                   </li>
                   <li
                     onClick={() => {
-                      console.log("Seller log out clicked");
                       setCookie("seller_access_token", "", {
                         expires: new Date(0),
                       });
                       setCookie("brandName", "", { expires: new Date(0) });
-
-                      navigate("/");
                       notify("Seller Logged Out", "info");
+                      navigate("/");
                     }}
+                    className="hover:text-green-600 cursor-pointer"
                   >
-                    <a className="block px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0  whitespace-nowrap">
-                      Seller Logout
-                    </a>
+                    Logout
                   </li>
                 </ul>
               </div>
             )}
           </div>
+
+          {/* Cart */}
           <div
-            className="flex flex-row gap-1 justify-center items-center text-red-700 cursor-pointer"
-            onClick={() => {
-              setOpenCart(true);
-            }}
+            className="flex items-center gap-1 text-white cursor-pointer hover:scale-105 transition-transform"
+            onClick={() => setOpenCart(true)}
           >
             <AiOutlineShoppingCart />
             <span className="text-sm font-medium hidden md:block">Cart</span>
           </div>
+
           {openCart && <Cart setOpenCart={setOpenCart} />}
         </div>
       </div>
